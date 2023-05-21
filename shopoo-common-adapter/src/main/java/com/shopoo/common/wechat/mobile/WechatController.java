@@ -1,9 +1,9 @@
 package com.shopoo.common.wechat.mobile;
 
-import com.shopoo.dto.Response;
-import com.shopoo.dto.SingleResponse;
-import com.shopoo.common.wechat.api.JsapiTicketService;
-import com.shopoo.common.wechat.api.TokenService;
+import com.shopoo.common.infrastructure.wechat.client.dto.request.MsgSecCheckRequest;
+import com.shopoo.common.infrastructure.wechat.client.dto.request.SignatureRequest;
+import com.shopoo.common.wechat.api.JsapiTicketFacade;
+import com.shopoo.common.wechat.api.TokenFacade;
 import com.shopoo.common.wechat.dto.clientobject.OpenInfoCO;
 import com.shopoo.common.wechat.dto.clientobject.SignatureCO;
 import com.shopoo.common.wechat.dto.clientobject.TokenInfoCO;
@@ -11,8 +11,8 @@ import com.shopoo.common.wechat.dto.cqe.SecCheckQry;
 import com.shopoo.common.wechat.dto.cqe.SignatureQry;
 import com.shopoo.common.wechat.dto.cqe.TokenQry;
 import com.shopoo.common.wechat.dto.cqe.WechatInfoQry;
-import com.shopoo.common.infrastructure.wechat.client.dto.request.MsgSecCheckRequest;
-import com.shopoo.common.infrastructure.wechat.client.dto.request.SignatureRequest;
+import com.szmengran.cola.dto.Response;
+import com.szmengran.cola.dto.SingleResponse;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +38,10 @@ public class WechatController {
     
     @Autowired
     @Qualifier("wechatTokenService")
-    private TokenService tokenService;
+    private TokenFacade tokenFacade;
     
     @Autowired
-    private JsapiTicketService jsapiTicketService;
+    private JsapiTicketFacade jsapiTicketFacade;
     
     /**
      * 检查一段文本是否含有违法违规内容
@@ -56,7 +56,7 @@ public class WechatController {
     @PostMapping(value="/msgSecCheck/{appId}/{appSecret}")
     public Response msgSecCheck(@PathVariable("appId") String appId, @PathVariable("appSecret") String appSecret, @RequestBody MsgSecCheckRequest msgSecCheckRequest) throws Exception {
         SecCheckQry secCheckQry = SecCheckQry.builder().appId(appId).appSecret(appSecret).content(msgSecCheckRequest.getContent()).build();
-        return jsapiTicketService.msgSecCheck(secCheckQry);
+        return jsapiTicketFacade.msgSecCheck(secCheckQry);
     }
     
     /**
@@ -72,7 +72,7 @@ public class WechatController {
     @GetMapping(value="/token/{appId}/{appSecret}/{code}")
     public SingleResponse<TokenInfoCO> getToken(@PathVariable("appId") String appId, @PathVariable("appSecret") String appSecret, @PathVariable("code") String code) throws Exception{
         TokenQry tokenQry = TokenQry.builder().appId(appId).appSecret(appSecret).code(code).build();
-        return tokenService.getToken(tokenQry);
+        return tokenFacade.getToken(tokenQry);
     }
     
     /**
@@ -88,7 +88,7 @@ public class WechatController {
     @GetMapping(value="/openinfo/{appId}/{appSecret}/{code}")
     public OpenInfoCO getUserInfo(@PathVariable("appId") String appId, @PathVariable("appSecret") String appSecret, @PathVariable("code") String code) throws Exception {
         WechatInfoQry wechatInfoQry = WechatInfoQry.builder().appId(appId).appSecret(appSecret).code(code).build();
-        return tokenService.getUserInfo(wechatInfoQry).getData();
+        return tokenFacade.getUserInfo(wechatInfoQry).getData();
     }
     
     /**
@@ -104,7 +104,7 @@ public class WechatController {
     @GetMapping(value="/baseinfo/{appId}/{appSecret}/{code}")
     public OpenInfoCO getBaseInfo(@PathVariable("appId") String appId, @PathVariable("appSecret") String appSecret, @PathVariable("code") String code) throws Exception {
         WechatInfoQry wechatInfoQry = WechatInfoQry.builder().appId(appId).appSecret(appSecret).code(code).build();
-        return tokenService.getBaseInfo(wechatInfoQry).getData();
+        return tokenFacade.getBaseInfo(wechatInfoQry).getData();
     }
     
     /**
@@ -120,6 +120,6 @@ public class WechatController {
     @PostMapping("signature/{appId}/{appSecret}")
     public SignatureCO getSignature(@PathVariable("appId") String appId, @PathVariable("appSecret") String appSecret, @RequestBody SignatureRequest signatureRequest) {
         SignatureQry signatureQry = SignatureQry.builder().appId(appId).appSecret(appSecret).url(signatureRequest.getUrl()).build();
-        return jsapiTicketService.getSignature(signatureQry).getData();
+        return jsapiTicketFacade.getSignature(signatureQry).getData();
     }
 }

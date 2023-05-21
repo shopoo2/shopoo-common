@@ -1,7 +1,7 @@
 package com.shopoo.common.wechat.dto.cqe.mini;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.shopoo.dto.Command;
+import com.szmengran.cola.dto.Command;
 import lombok.Data;
 
 /**

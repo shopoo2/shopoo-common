@@ -1,0 +1,25 @@
+server:
+  port: 8710
+spring:
+  profiles:
+    active: ${ENVIRONMENT:dev}
+  application:
+    name: shopoo-common
+  cloud:
+    nacos:
+      username: ${NACOS_USERNAME}
+      password: ${NACOS_PASSWORD}
+      discovery:
+        namespace: shopoo-${spring.profiles.active}
+        server-addr: ${NACOS_SERVER_ADDRESS}
+      config:
+        namespace: shopoo-${spring.profiles.active}
+        server-addr: ${NACOS_SERVER_ADDRESS}
+  config:
+    import:
+      - nacos:knife4j.yaml
+      - nacos:shopoo-common.yaml
+      - nacos:shopoo-common-jdbc.yaml
+      - nacos:shopoo-common-redis.yaml
+      - nacos:shopoo-common-dubbo.yaml
+      - nacos:shopoo-common-rocketmq.yaml

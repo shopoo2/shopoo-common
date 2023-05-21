@@ -1,6 +1,6 @@
 package com.shopoo.common.infrastructure.wechat.repository;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import com.shopoo.common.domain.wechat.repository.WechatRepository;
 import com.shopoo.common.domain.wechat.valueobject.MiniAppToken;

@@ -8,16 +8,16 @@ import com.shopoo.common.infrastructure.wechat.client.dto.response.JsapiTicketRe
 import com.shopoo.common.infrastructure.wechat.client.dto.response.MsgSecCheckResponse;
 import com.shopoo.common.infrastructure.wechat.client.dto.response.SignatureResponse;
 import com.shopoo.common.infrastructure.wechat.client.dto.response.TokenInfo;
-import com.shopoo.common.wechat.api.JsapiTicketService;
+import com.shopoo.common.wechat.api.JsapiTicketFacade;
 import com.shopoo.common.wechat.dto.clientobject.JsapiTicketCO;
 import com.shopoo.common.wechat.dto.clientobject.SignatureCO;
 import com.shopoo.common.wechat.dto.cqe.JsapiTicketQry;
 import com.shopoo.common.wechat.dto.cqe.SecCheckQry;
 import com.shopoo.common.wechat.dto.cqe.SignatureQry;
-import com.shopoo.dto.Response;
-import com.shopoo.dto.SingleResponse;
-import com.shopoo.exception.BizException;
-import com.shopoo.exception.SysException;
+import com.szmengran.cola.dto.Response;
+import com.szmengran.cola.dto.SingleResponse;
+import com.szmengran.cola.exception.BizException;
+import com.szmengran.cola.exception.SysException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
 
@@ -34,7 +34,7 @@ import org.springframework.scheduling.annotation.Scheduled;
  */
 @Slf4j
 @DubboService
-public class JsapiTicketServiceImpl implements JsapiTicketService {
+public class JsapiTicketFacadeImpl implements JsapiTicketFacade {
     
     @Autowired
     private WechatClient wechatClient;

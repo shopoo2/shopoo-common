@@ -4,7 +4,7 @@ import java.util.Map;
 
 import com.shopoo.common.file.api.OssService;
 import com.shopoo.common.file.dto.cqe.QrCodeRequest;
-import com.shopoo.dto.SingleResponse;
+import com.szmengran.cola.dto.SingleResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

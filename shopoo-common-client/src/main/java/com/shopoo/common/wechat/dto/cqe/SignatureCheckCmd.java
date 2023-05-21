@@ -1,8 +1,8 @@
 package com.shopoo.common.wechat.dto.cqe;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
-import com.shopoo.dto.Command;
+import com.szmengran.cola.dto.Command;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

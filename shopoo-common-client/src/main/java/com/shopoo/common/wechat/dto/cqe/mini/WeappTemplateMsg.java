@@ -2,7 +2,7 @@ package com.shopoo.common.wechat.dto.cqe.mini;
 
 import java.util.Map;
 
-import com.shopoo.dto.Command;
+import com.szmengran.cola.dto.Command;
 import lombok.Data;
 
 /**

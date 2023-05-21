@@ -1,8 +1,8 @@
 package com.shopoo.common.sms.dto.cqe;
 
-import com.shopoo.base.annotation.Phone;
-import com.shopoo.dto.Command;
-import io.swagger.annotations.ApiModelProperty;
+import com.szmengran.cola.base.annotation.Phone;
+import com.szmengran.cola.dto.Command;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,10 +19,10 @@ import lombok.NoArgsConstructor;
 @Data
 public class SmsSendCmd extends Command {
 
-	@ApiModelProperty("电话号码")
+	@Schema(name = "电话号码")
 	@Phone
 	private String phone;
 
-	@ApiModelProperty("验证码长度")
+	@Schema(name = "验证码长度")
 	private int num;
 }

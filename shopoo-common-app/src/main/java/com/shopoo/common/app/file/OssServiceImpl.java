@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
@@ -22,10 +22,10 @@ import com.shopoo.common.file.api.OssService;
 import com.shopoo.common.file.dto.cqe.QrCodeRequest;
 import com.shopoo.common.infrastructure.file.client.dto.QrCodeRequestBody;
 import com.shopoo.common.infrastructure.file.config.AliyunProperties;
-import com.shopoo.common.wechat.api.TokenService;
+import com.shopoo.common.wechat.api.TokenFacade;
 import com.shopoo.common.wechat.dto.clientobject.MiniAppTokenInfoCO;
 import com.shopoo.common.wechat.dto.cqe.MiniAppTokenQry;
-import com.shopoo.dto.SingleResponse;
+import com.szmengran.cola.dto.SingleResponse;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.slf4j.Logger;
@@ -51,7 +51,7 @@ public class OssServiceImpl implements OssService {
     private final static Logger logger = LoggerFactory.getLogger(OssServiceImpl.class);
 
     @DubboReference
-    private TokenService tokenService;
+    private TokenFacade tokenFacade;
 
     @Resource
     private WechatMiniAppClient WechatMiniAppClient;
@@ -119,7 +119,7 @@ public class OssServiceImpl implements OssService {
     @Override
     public SingleResponse<String> getwxacodeunlimit(QrCodeRequest qrCodeRequest) {
         MiniAppTokenQry miniAppTokenQry = MiniAppTokenQry.builder().appId(qrCodeRequest.getAppId()).appSecret(qrCodeRequest.getAppSecret()).build();
-        SingleResponse<MiniAppTokenInfoCO> singleResponse = tokenService.getMiniAppToken(miniAppTokenQry);
+        SingleResponse<MiniAppTokenInfoCO> singleResponse = tokenFacade.getMiniAppToken(miniAppTokenQry);
         MiniAppTokenInfoCO miniAppTokenInfoCO = singleResponse.getData();
         QrCodeRequestBody qrCodeRequestBody = AppConverter.INSTANCE.toQrCodeRequestBody(qrCodeRequest);
         byte[] data = WechatMiniAppClient.getwxacodeunlimit(miniAppTokenInfoCO.getAccessToken(), qrCodeRequestBody);

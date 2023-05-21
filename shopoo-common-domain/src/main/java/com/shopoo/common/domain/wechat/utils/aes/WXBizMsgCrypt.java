@@ -21,7 +21,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import com.shopoo.exception.BizException;
+import com.szmengran.cola.exception.BizException;
 import org.apache.commons.codec.binary.Base64;
 
 

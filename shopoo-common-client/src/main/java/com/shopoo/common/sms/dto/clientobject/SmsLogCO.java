@@ -2,7 +2,7 @@ package com.shopoo.common.sms.dto.clientobject;
 
 import java.time.LocalDateTime;
 
-import com.shopoo.dto.ClientObject;
+import com.szmengran.cola.dto.ClientObject;
 import lombok.Data;
 
 /**

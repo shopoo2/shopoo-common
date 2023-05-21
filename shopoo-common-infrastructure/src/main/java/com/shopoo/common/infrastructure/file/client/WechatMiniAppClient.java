@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "wechatApi", url = "https://api.weixin.qq.com")
+@FeignClient(name = "wechatMiniApi", url = "https://api.weixin.qq.com")
 public interface WechatMiniAppClient {
 
 	@PostMapping("/wxa/getwxacodeunlimit?access_token={access_token}")

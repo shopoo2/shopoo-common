@@ -3,20 +3,21 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.shopoo</groupId>
-    <artifactId>shopoo-component-dependencies</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <groupId>com.szmengran.cola</groupId>
+    <artifactId>cola-components-dependencies</artifactId>
+    <version>3.0.6</version>
   </parent>
   <groupId>com.shopoo.common</groupId>
   <artifactId>shopoo-common-parent</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>shopoo-common</name>
-  <url>https://spring.io/projects/spring-boot/shopoo-component-parent/shopoo-component-dependencies/shopoo-common-parent</url>
+  <url>https://github.com/alibaba/COLA/cola-components-dependencies/shopoo-common-parent</url>
   <licenses>
     <license>
-      <name>Apache License, Version 2.0</name>
-      <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+      <name>GNU Lesser General Public License v2.1</name>
+      <url>https://github.com/alibaba/COLA/blob/master/LICENSE</url>
+      <distribution>repo</distribution>
     </license>
   </licenses>
   <dependencyManagement>
@@ -48,4 +49,12 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.26</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
 </project>

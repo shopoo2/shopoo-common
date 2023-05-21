@@ -8,7 +8,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>start</artifactId>
+    <artifactId>shopoo-common-start</artifactId>
     <packaging>jar</packaging>
     <name>start</name>
 

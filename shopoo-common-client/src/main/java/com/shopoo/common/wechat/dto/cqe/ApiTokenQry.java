@@ -1,6 +1,6 @@
 package com.shopoo.common.wechat.dto.cqe;
 
-import com.shopoo.dto.Query;
+import com.szmengran.cola.dto.Query;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -2,7 +2,7 @@ package com.shopoo.common.file.mobile;
 
 import com.shopoo.common.file.api.ImageService;
 import com.shopoo.common.file.dto.cqe.ImageAddCmd;
-import com.shopoo.dto.Response;
+import com.szmengran.cola.dto.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

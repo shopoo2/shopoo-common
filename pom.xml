@@ -3,9 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.shopoo</groupId>
-        <artifactId>shopoo-component-dependencies</artifactId>
-        <version>1.0.4-SNAPSHOT</version>
+        <groupId>com.szmengran.cola</groupId>
+        <artifactId>cola-components-dependencies</artifactId>
+        <version>3.0.6</version>
     </parent>
 
     <groupId>com.shopoo.common</groupId>
@@ -20,7 +20,7 @@
         <module>shopoo-common-app</module>
         <module>shopoo-common-domain</module>
         <module>shopoo-common-infrastructure</module>
-        <module>start</module>
+        <module>shopoo-common-start</module>
     </modules>
 
     <dependencyManagement>

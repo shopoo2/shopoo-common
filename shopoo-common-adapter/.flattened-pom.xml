@@ -11,11 +11,12 @@
   <artifactId>shopoo-common-adapter</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <name>shopoo-common-adapter</name>
-  <url>https://spring.io/projects/spring-boot/shopoo-component-parent/shopoo-component-dependencies/shopoo-common-parent/shopoo-common-adapter</url>
+  <url>https://github.com/alibaba/COLA/cola-components-dependencies/shopoo-common-parent/shopoo-common-adapter</url>
   <licenses>
     <license>
-      <name>Apache License, Version 2.0</name>
-      <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+      <name>GNU Lesser General Public License v2.1</name>
+      <url>https://github.com/alibaba/COLA/blob/master/LICENSE</url>
+      <distribution>repo</distribution>
     </license>
   </licenses>
   <dependencies>
@@ -28,8 +29,14 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
-      <version>2.6.7</version>
+      <version>3.0.6</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.26</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <build>

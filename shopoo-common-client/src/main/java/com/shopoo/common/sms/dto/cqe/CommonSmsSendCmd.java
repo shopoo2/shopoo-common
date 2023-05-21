@@ -1,7 +1,7 @@
 package com.shopoo.common.sms.dto.cqe;
 
-import com.shopoo.base.annotation.Phone;
-import com.shopoo.dto.Command;
+import com.szmengran.cola.base.annotation.Phone;
+import com.szmengran.cola.dto.Command;
 import lombok.Data;
 
 /**

@@ -6,7 +6,7 @@ import com.shopoo.common.infrastructure.wechat.client.WechatClient;
 import com.shopoo.common.infrastructure.wechat.client.dto.response.OpenInfo;
 import com.shopoo.common.infrastructure.wechat.client.dto.response.TokenInfo;
 import com.shopoo.common.infrastructure.wechat.client.dto.response.mini.MiniAppTokenInfo;
-import com.shopoo.common.wechat.api.TokenService;
+import com.shopoo.common.wechat.api.TokenFacade;
 import com.shopoo.common.wechat.dto.clientobject.MiniAppTokenInfoCO;
 import com.shopoo.common.wechat.dto.clientobject.OpenInfoCO;
 import com.shopoo.common.wechat.dto.clientobject.TokenInfoCO;
@@ -14,8 +14,8 @@ import com.shopoo.common.wechat.dto.cqe.ApiTokenQry;
 import com.shopoo.common.wechat.dto.cqe.MiniAppTokenQry;
 import com.shopoo.common.wechat.dto.cqe.TokenQry;
 import com.shopoo.common.wechat.dto.cqe.WechatInfoQry;
-import com.shopoo.dto.SingleResponse;
-import com.shopoo.exception.BizException;
+import com.szmengran.cola.dto.SingleResponse;
+import com.szmengran.cola.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.DubboService;
@@ -35,7 +35,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service("wechatTokenService")
 @DubboService
-public class TokenServiceImpl implements TokenService {
+public class TokenFacadeImpl implements TokenFacade {
 
     @Autowired
     private WechatClient wechatClient;

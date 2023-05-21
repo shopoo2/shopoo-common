@@ -2,7 +2,7 @@ package com.shopoo.common.sms.api;
 
 import com.shopoo.common.sms.dto.cqe.CommonSmsSendCmd;
 import com.shopoo.common.sms.dto.cqe.SmsSendCmd;
-import com.shopoo.dto.Response;
+import com.szmengran.cola.dto.Response;
 
 /**
  * @Package com.szmengran.cloud.common.sms.service

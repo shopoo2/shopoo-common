@@ -1,6 +1,6 @@
 package com.shopoo.common.wechat.dto.clientobject;
 
-import com.shopoo.dto.ClientObject;
+import com.szmengran.cola.dto.ClientObject;
 import lombok.Data;
 
 /**

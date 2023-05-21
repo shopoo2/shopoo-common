@@ -5,13 +5,8 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import com.shopoo.dto.Response;
-import com.shopoo.dto.SingleResponse;
-import com.shopoo.common.wechat.api.TokenService;
-import com.shopoo.common.wechat.api.WechatService;
+import com.shopoo.common.wechat.api.TokenFacade;
+import com.shopoo.common.wechat.api.WechatFacade;
 import com.shopoo.common.wechat.dto.clientobject.LoginInfoCO;
 import com.shopoo.common.wechat.dto.clientobject.MiniAppTokenInfoCO;
 import com.shopoo.common.wechat.dto.cqe.LoginCmd;
@@ -22,6 +17,10 @@ import com.shopoo.common.wechat.dto.cqe.mini.LinkRequest;
 import com.shopoo.common.wechat.dto.cqe.mini.MiniProgramPageRequest;
 import com.shopoo.common.wechat.dto.cqe.mini.TextRequest;
 import com.shopoo.common.wechat.dto.cqe.mini.UniformMessageRequest;
+import com.szmengran.cola.dto.Response;
+import com.szmengran.cola.dto.SingleResponse;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,16 +47,16 @@ public class WechatMiniAppController {
 //    private WechatClient wechatClient;
 
     @Resource
-    private WechatService wechatService;
+    private WechatFacade wechatFacade;
 
     @Resource
-    private TokenService tokenService;
+    private TokenFacade tokenFacade;
     
     @PostMapping(value="/message/{appId}/{appSecret}")
     public Response sendCustomerMessage(@PathVariable("appId") String appId, @PathVariable("appSecret") String appSecret, @RequestBody LinkRequest linkRequest) {
         linkRequest.setAppId(appId);
         linkRequest.setAppSecret(appSecret);
-        return wechatService.sendLinkMessage(linkRequest);
+        return wechatFacade.sendLinkMessage(linkRequest);
     }
     
     /**
@@ -73,7 +72,7 @@ public class WechatMiniAppController {
             @RequestBody TextRequest textRequest) {
         textRequest.setAppId(appId);
         textRequest.setAppSecret(appSecret);
-        return wechatService.sendTextMessage(textRequest);
+        return wechatFacade.sendTextMessage(textRequest);
     }
     
     /**
@@ -89,7 +88,7 @@ public class WechatMiniAppController {
             @RequestBody ImageRequest imageRequest) {
         imageRequest.setAppId(appId);
         imageRequest.setAppSecret(appSecret);
-        return wechatService.sendImage(imageRequest);
+        return wechatFacade.sendImage(imageRequest);
     }
     
     /**
@@ -105,7 +104,7 @@ public class WechatMiniAppController {
             @RequestBody LinkRequest linkRequest) {
         linkRequest.setAppId(appId);
         linkRequest.setAppSecret(appSecret);
-        return wechatService.sendLinkMessage(linkRequest);
+        return wechatFacade.sendLinkMessage(linkRequest);
     }
     
     /**
@@ -118,14 +117,14 @@ public class WechatMiniAppController {
     public Response sendMiniProgramPage(@PathVariable("appId") String appId, @PathVariable("appSecret") String appSecret, @RequestBody MiniProgramPageRequest miniProgramPageRequest) {
         miniProgramPageRequest.setAppId(appId);
         miniProgramPageRequest.setAppSecret(appSecret);
-        return wechatService.sendMiniProgramPage(miniProgramPageRequest);
+        return wechatFacade.sendMiniProgramPage(miniProgramPageRequest);
     }
     
     @PostMapping(value="/uniformMessage/{appId}/{appSecret}")
     public Response sendUniformMessageRequest(@PathVariable("appId") String appId, @PathVariable("appSecret") String appSecret, @RequestBody UniformMessageRequest uniformMessageRequest) {
         uniformMessageRequest.setAppId(appId);
         uniformMessageRequest.setAppSecret(appSecret);
-        return wechatService.sendUniformMessage(uniformMessageRequest);
+        return wechatFacade.sendUniformMessage(uniformMessageRequest);
     }
     
     @GetMapping(value = "/signature/{myToken}/{encodingAESKey}/{appId}")
@@ -144,7 +143,7 @@ public class WechatMiniAppController {
                 .encodingAESKey(encodingAESKey)
                 .appId(appId)
                 .build();
-        return wechatService.checkSignature(signatureCheckCmd);
+        return wechatFacade.checkSignature(signatureCheckCmd);
     }
     
     /**
@@ -158,7 +157,7 @@ public class WechatMiniAppController {
     @GetMapping(value="/sns/jscode2session/{appId}/{appSecret}/{code}")
     LoginInfoCO getLoginInfo(@PathVariable("appId") String appId, @PathVariable("appSecret") String appSecret, @PathVariable("code") String code) {
         LoginCmd loginCmd = LoginCmd.builder().appId(appId).appSecret(appSecret).code(code).build();
-        return wechatService.getLoginInfo(loginCmd).getData();
+        return wechatFacade.getLoginInfo(loginCmd).getData();
     }
     
     /**
@@ -173,6 +172,6 @@ public class WechatMiniAppController {
     @GetMapping("/cgi-bin/token/{appId}/{secret}")
     MiniAppTokenInfoCO getMiniAppToken(@PathVariable("appId") String appId, @PathVariable("secret") String secret) {
         MiniAppTokenQry miniAppTokenQry = new MiniAppTokenQry(appId, secret);
-        return tokenService.getMiniAppToken(miniAppTokenQry).getData();
+        return tokenFacade.getMiniAppToken(miniAppTokenQry).getData();
     }
 }

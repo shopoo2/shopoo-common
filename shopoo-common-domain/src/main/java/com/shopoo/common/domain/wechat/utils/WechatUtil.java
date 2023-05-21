@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.util.Random;
 
-import com.shopoo.exception.BizException;
+import com.szmengran.cola.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 
 /** 

@@ -7,7 +7,7 @@ import com.shopoo.common.wechat.dto.cqe.ApiTokenQry;
 import com.shopoo.common.wechat.dto.cqe.MiniAppTokenQry;
 import com.shopoo.common.wechat.dto.cqe.TokenQry;
 import com.shopoo.common.wechat.dto.cqe.WechatInfoQry;
-import com.shopoo.dto.SingleResponse;
+import com.szmengran.cola.dto.SingleResponse;
 
 /**
  * @Package com.szmengran.wechat.token.service
@@ -15,7 +15,7 @@ import com.shopoo.dto.SingleResponse;
  * @date 2018年9月4日 下午4:36:39
  * @author <a href="mailto:android_li@sina.cn">Joe</a>
  */
-public interface TokenService {
+public interface TokenFacade {
 
     /**
      * 微信小程序获取token

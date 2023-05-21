@@ -1,14 +1,13 @@
 package com.shopoo.common.sms.wap;
 
-import javax.annotation.Resource;
-
 import com.shopoo.common.sms.api.SmsCaptchaService;
 import com.shopoo.common.sms.api.SmsService;
 import com.shopoo.common.sms.dto.cqe.CaptchaCheckCmd;
 import com.shopoo.common.sms.dto.cqe.SmsSendCmd;
-import com.shopoo.dto.Response;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import com.szmengran.cola.dto.Response;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.Resource;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2018年4月6日 下午3:10:00
  * @author <a href="mailto:android_li@sina.cn">Joe</a>
  */
-@Api("验证码")
+@Tag(name = "验证码")
 @RestController
 @RequestMapping(produces = { "application/json" })
 public class SmsCaptchaController {
@@ -32,7 +31,7 @@ public class SmsCaptchaController {
     @Resource
     private SmsService smsService;
     
-    @ApiOperation(value = "发送短信登录验证码", response = Response.class)
+    @Operation(description = "发送短信登录验证码")
     @GetMapping("captcha/{phone}")
     public Response sendCaptcha(@PathVariable("phone") String phone) {
         SmsSendCmd smsSendCmd = SmsSendCmd
@@ -43,7 +42,7 @@ public class SmsCaptchaController {
         return smsService.send(smsSendCmd);
     }
     
-    @ApiOperation(value = "验证码检查是否正确", response = Response.class)
+    @Operation(description = "验证码检查是否正确")
     @GetMapping("/{captcha}/{phone}")
     public Response check(@PathVariable("captcha") String captcha, @PathVariable("phone") String phone) {
         CaptchaCheckCmd captchaCheckCmd = CaptchaCheckCmd.builder().captcha(captcha).phone(phone).build();

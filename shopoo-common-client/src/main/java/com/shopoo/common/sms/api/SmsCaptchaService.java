@@ -3,7 +3,7 @@ package com.shopoo.common.sms.api;
 import com.shopoo.common.sms.dto.cqe.CaptchaAddCmd;
 import com.shopoo.common.sms.dto.cqe.CaptchaCheckCmd;
 import com.shopoo.common.sms.dto.cqe.CaptchaUpdateCmd;
-import com.shopoo.dto.Response;
+import com.szmengran.cola.dto.Response;
 
 /**
  * @Package com.szmengran.cloud.common.sms.service

@@ -10,10 +10,10 @@ import com.shopoo.common.wechat.dto.cqe.mini.LinkRequest;
 import com.shopoo.common.wechat.dto.cqe.mini.MiniProgramPageRequest;
 import com.shopoo.common.wechat.dto.cqe.mini.TextRequest;
 import com.shopoo.common.wechat.dto.cqe.mini.UniformMessageRequest;
-import com.shopoo.dto.Response;
-import com.shopoo.dto.SingleResponse;
+import com.szmengran.cola.dto.Response;
+import com.szmengran.cola.dto.SingleResponse;
 
-public interface WechatService {
+public interface WechatFacade {
 
 	/**
 	 * 获取微信注册信息

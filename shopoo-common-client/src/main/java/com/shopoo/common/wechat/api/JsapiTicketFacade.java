@@ -5,8 +5,8 @@ import com.shopoo.common.wechat.dto.clientobject.SignatureCO;
 import com.shopoo.common.wechat.dto.cqe.JsapiTicketQry;
 import com.shopoo.common.wechat.dto.cqe.SecCheckQry;
 import com.shopoo.common.wechat.dto.cqe.SignatureQry;
-import com.shopoo.dto.Response;
-import com.shopoo.dto.SingleResponse;
+import com.szmengran.cola.dto.Response;
+import com.szmengran.cola.dto.SingleResponse;
 
 /** 
  * @Description: 获取jsapi_ticket服务
@@ -14,7 +14,7 @@ import com.shopoo.dto.SingleResponse;
  * @CreateTime Mar 27, 2019 10:19:59 PM 
  * @Author <a href="mailto:android_li@sina.cn">Joe</a> 
  */
-public interface JsapiTicketService {
+public interface JsapiTicketFacade {
 
     /**
      * 获取jsapi_ticket信息

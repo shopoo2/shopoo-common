@@ -5,7 +5,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 import com.shopoo.common.file.dto.cqe.QrCodeRequest;
-import com.shopoo.dto.SingleResponse;
+import com.szmengran.cola.dto.SingleResponse;
 
 /** 
  * @Description: 阿里云OSS服务

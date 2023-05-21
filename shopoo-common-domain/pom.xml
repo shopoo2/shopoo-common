@@ -20,16 +20,16 @@
         </dependency>
         <!-- COLA components -->
         <dependency>
-            <groupId>com.shopoo</groupId>
-            <artifactId>shopoo-component-domain-starter</artifactId>
+            <groupId>com.szmengran.cola</groupId>
+            <artifactId>cola-component-domain-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.shopoo</groupId>
-            <artifactId>shopoo-component-exception</artifactId>
+            <groupId>com.szmengran.cola</groupId>
+            <artifactId>cola-component-exception</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.shopoo</groupId>
-            <artifactId>shopoo-component-base</artifactId>
+            <groupId>com.szmengran.cola</groupId>
+            <artifactId>cola-component-base</artifactId>
         </dependency>
         <!-- COLA components End-->
 

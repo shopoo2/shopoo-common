@@ -22,8 +22,8 @@
             <artifactId>shopoo-common-infrastructure</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.shopoo</groupId>
-            <artifactId>shopoo-component-catchlog-starter</artifactId>
+            <groupId>com.szmengran.cola</groupId>
+            <artifactId>cola-component-catchlog-starter</artifactId>
         </dependency>
         <!-- JSR 303 Validation -->
         <dependency>
@@ -31,12 +31,8 @@
             <artifactId>hibernate-validator</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.el</groupId>
-            <artifactId>javax.el-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.web</groupId>
-            <artifactId>javax.el</artifactId>
+            <groupId>jakarta.el</groupId>
+            <artifactId>jakarta.el-api</artifactId>
         </dependency>
         <!-- JSR 303 Validation End-->
     </dependencies>

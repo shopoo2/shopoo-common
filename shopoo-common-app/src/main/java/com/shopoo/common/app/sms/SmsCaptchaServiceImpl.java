@@ -9,9 +9,9 @@ import com.shopoo.common.sms.api.SmsCaptchaService;
 import com.shopoo.common.sms.dto.cqe.CaptchaAddCmd;
 import com.shopoo.common.sms.dto.cqe.CaptchaCheckCmd;
 import com.shopoo.common.sms.dto.cqe.CaptchaUpdateCmd;
-import com.shopoo.dto.Response;
-import com.shopoo.exception.Assert;
-import com.shopoo.exception.BizException;
+import com.szmengran.cola.dto.Response;
+import com.szmengran.cola.exception.Assert;
+import com.szmengran.cola.exception.BizException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.DubboService;
 

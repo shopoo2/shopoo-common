@@ -1,6 +1,6 @@
 package com.shopoo.common.app.sms;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import com.shopoo.common.app.sms.converter.AppConverter;
 import com.shopoo.common.domain.sms.config.SmsProperties;
@@ -13,8 +13,8 @@ import com.shopoo.common.infrastructure.sms.repository.database.mapper.SmsLogMap
 import com.shopoo.common.sms.api.SmsService;
 import com.shopoo.common.sms.dto.cqe.CommonSmsSendCmd;
 import com.shopoo.common.sms.dto.cqe.SmsSendCmd;
-import com.shopoo.dto.Response;
-import com.shopoo.exception.SysException;
+import com.szmengran.cola.dto.Response;
+import com.szmengran.cola.exception.SysException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
 

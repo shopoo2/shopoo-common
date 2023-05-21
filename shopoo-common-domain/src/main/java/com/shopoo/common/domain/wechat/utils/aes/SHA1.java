@@ -11,7 +11,7 @@ package com.shopoo.common.domain.wechat.utils.aes;
 import java.security.MessageDigest;
 import java.util.Arrays;
 
-import com.shopoo.exception.BizException;
+import com.szmengran.cola.exception.BizException;
 
 /**
  * SHA1 class

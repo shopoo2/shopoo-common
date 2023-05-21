@@ -1,6 +1,6 @@
 package com.shopoo.common.file.dto.cqe;
 
-import com.shopoo.dto.Command;
+import com.szmengran.cola.dto.Command;
 import lombok.Data;
 
 @Data

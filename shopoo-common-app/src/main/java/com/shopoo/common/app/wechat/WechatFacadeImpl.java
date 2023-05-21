@@ -14,14 +14,11 @@ import com.shopoo.common.infrastructure.wechat.client.WechatClient;
 import com.shopoo.common.infrastructure.wechat.client.dto.request.mini.ImageRequestBody;
 import com.shopoo.common.infrastructure.wechat.client.dto.request.mini.LinkRequestBody;
 import com.shopoo.common.infrastructure.wechat.client.dto.request.mini.MiniProgramPageRequestBody;
+import com.shopoo.common.infrastructure.wechat.client.dto.request.mini.MsgResponse;
 import com.shopoo.common.infrastructure.wechat.client.dto.request.mini.Text;
 import com.shopoo.common.infrastructure.wechat.client.dto.request.mini.TextRequestBody;
 import com.shopoo.common.infrastructure.wechat.client.dto.request.mini.UniformMessageRequestBody;
-import com.shopoo.common.infrastructure.wechat.client.dto.request.mini.MsgResponse;
-import com.shopoo.dto.Response;
-import com.shopoo.dto.SingleResponse;
-import com.shopoo.exception.SysException;
-import com.shopoo.common.wechat.api.WechatService;
+import com.shopoo.common.wechat.api.WechatFacade;
 import com.shopoo.common.wechat.dto.clientobject.LoginInfoCO;
 import com.shopoo.common.wechat.dto.clientobject.WechatRegisterCO;
 import com.shopoo.common.wechat.dto.cqe.LoginCmd;
@@ -32,6 +29,9 @@ import com.shopoo.common.wechat.dto.cqe.mini.LinkRequest;
 import com.shopoo.common.wechat.dto.cqe.mini.MiniProgramPageRequest;
 import com.shopoo.common.wechat.dto.cqe.mini.TextRequest;
 import com.shopoo.common.wechat.dto.cqe.mini.UniformMessageRequest;
+import com.szmengran.cola.dto.Response;
+import com.szmengran.cola.dto.SingleResponse;
+import com.szmengran.cola.exception.SysException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
 
@@ -45,7 +45,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 @Slf4j
 @DubboService
-public class WechatServiceImpl implements WechatService {
+public class WechatFacadeImpl implements WechatFacade {
 
 	private static final ExecutorService executor = new ThreadPoolExecutor(2, 100, 0L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
 

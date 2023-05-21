@@ -1,6 +1,6 @@
 package com.shopoo.common.infrastructure.sms.repository;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import com.aliyun.dysmsapi20170525.Client;
 import com.aliyun.dysmsapi20170525.models.SendSmsRequest;
@@ -10,7 +10,7 @@ import com.google.gson.Gson;
 import com.shopoo.common.domain.sms.config.SmsProperties;
 import com.shopoo.common.domain.sms.entity.Sms;
 import com.shopoo.common.domain.sms.repository.SmsRepository;
-import com.shopoo.exception.SysException;
+import com.szmengran.cola.exception.SysException;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.InitializingBean;
