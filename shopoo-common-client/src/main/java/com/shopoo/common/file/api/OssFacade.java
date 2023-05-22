@@ -13,7 +13,7 @@ import com.szmengran.cola.dto.SingleResponse;
  * @CreateTime May 7, 2019 10:30:56 AM 
  * @Author <a href="mailto:android_li@sina.cn">Joe</a> 
  */
-public interface OssService {
+public interface OssFacade {
     
     /**
      * 文件类型

@@ -10,7 +10,7 @@ import com.szmengran.cola.dto.Response;
  * @date 2018年4月6日 下午2:12:13
  * @author <a href="mailto:android_li@sina.cn">Joe</a>
  */
-public interface SmsService {
+public interface SmsFacade {
 
     /**
      * 短信发送

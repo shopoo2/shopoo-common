@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import com.shopoo.common.app.sms.converter.AppConverter;
 import com.shopoo.common.infrastructure.sms.repository.database.dataobject.TCommonSmsCaptcha;
 import com.shopoo.common.infrastructure.sms.repository.database.mapper.SmsCaptchaMapper;
-import com.shopoo.common.sms.api.SmsCaptchaService;
+import com.shopoo.common.sms.api.SmsCaptchaFacade;
 import com.shopoo.common.sms.dto.cqe.CaptchaAddCmd;
 import com.shopoo.common.sms.dto.cqe.CaptchaCheckCmd;
 import com.shopoo.common.sms.dto.cqe.CaptchaUpdateCmd;
@@ -27,7 +27,7 @@ import org.springframework.validation.annotation.Validated;
  */
 @Service
 @DubboService
-public class SmsCaptchaServiceImpl implements SmsCaptchaService {
+public class SmsCaptchaFacadeImpl implements SmsCaptchaFacade {
     
     @Autowired
     private SmsCaptchaMapper smsCaptchaMapper;

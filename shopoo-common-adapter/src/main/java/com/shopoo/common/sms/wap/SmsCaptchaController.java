@@ -1,7 +1,7 @@
 package com.shopoo.common.sms.wap;
 
-import com.shopoo.common.sms.api.SmsCaptchaService;
-import com.shopoo.common.sms.api.SmsService;
+import com.shopoo.common.sms.api.SmsCaptchaFacade;
+import com.shopoo.common.sms.api.SmsFacade;
 import com.shopoo.common.sms.dto.cqe.CaptchaCheckCmd;
 import com.shopoo.common.sms.dto.cqe.SmsSendCmd;
 import com.szmengran.cola.dto.Response;
@@ -26,10 +26,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class SmsCaptchaController {
     
     @Resource
-    private SmsCaptchaService smsCaptchaService;
+    private SmsCaptchaFacade smsCaptchaFacade;
 
     @Resource
-    private SmsService smsService;
+    private SmsFacade smsFacade;
     
     @Operation(description = "发送短信登录验证码")
     @GetMapping("captcha/{phone}")
@@ -39,14 +39,14 @@ public class SmsCaptchaController {
                 .phone(phone)
                 .num(4)
                 .build();
-        return smsService.send(smsSendCmd);
+        return smsFacade.send(smsSendCmd);
     }
     
     @Operation(description = "验证码检查是否正确")
     @GetMapping("/{captcha}/{phone}")
     public Response check(@PathVariable("captcha") String captcha, @PathVariable("phone") String phone) {
         CaptchaCheckCmd captchaCheckCmd = CaptchaCheckCmd.builder().captcha(captcha).phone(phone).build();
-        return smsCaptchaService.check(captchaCheckCmd);
+        return smsCaptchaFacade.check(captchaCheckCmd);
     }
 
 }

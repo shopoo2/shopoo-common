@@ -1,6 +1,6 @@
 package com.shopoo.common.sms.wap;
 
-import com.shopoo.common.sms.api.SmsService;
+import com.shopoo.common.sms.api.SmsFacade;
 import com.shopoo.common.sms.dto.cqe.SmsSendCmd;
 import com.szmengran.cola.dto.Response;
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,12 +25,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class SmsController {
     
     @Autowired
-    private SmsService smsService;
+    private SmsFacade smsFacade;
     
     @Operation(description = "发送短信服务")
     @PostMapping("/message")
     public Response send(@Validated @RequestBody SmsSendCmd smsSendCmd) {
-        return smsService.send(smsSendCmd);
+        return smsFacade.send(smsSendCmd);
     }
     
 }

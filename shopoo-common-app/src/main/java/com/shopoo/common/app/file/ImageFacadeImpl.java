@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 import jakarta.annotation.Resource;
 
 import com.shopoo.common.app.file.converter.AppConverter;
-import com.shopoo.common.file.api.ImageService;
+import com.shopoo.common.file.api.ImageFacade;
 import com.shopoo.common.file.dto.cqe.ImageAddCmd;
 import com.shopoo.common.infrastructure.file.repository.database.dataobject.Image;
 import com.shopoo.common.infrastructure.file.repository.database.mapper.ImageMapper;
@@ -31,10 +31,10 @@ import org.springframework.stereotype.Service;
  * @author <a href="mailto:android_li@sina.cn">Joe</a>
  */
 @Service
-public class ImageServiceImpl implements ImageService {
+public class ImageFacadeImpl implements ImageFacade {
 
     private final static ExecutorService executor = new ThreadPoolExecutor(20, 200, 0L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
-    private final static Logger logger = LoggerFactory.getLogger(ImageServiceImpl.class);
+    private final static Logger logger = LoggerFactory.getLogger(ImageFacadeImpl.class);
     
     @Resource
     private ImageMapper imageMapper;

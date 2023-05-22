@@ -2,7 +2,7 @@ package com.shopoo.common.file.mobile;
 
 import java.util.Map;
 
-import com.shopoo.common.file.api.OssService;
+import com.shopoo.common.file.api.OssFacade;
 import com.shopoo.common.file.dto.cqe.QrCodeRequest;
 import com.szmengran.cola.dto.SingleResponse;
 
@@ -24,14 +24,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class OssController {
 
     @Autowired
-    private OssService ossService;
+    private OssFacade ossFacade;
     
     @Value("${aliyun.oss.bucket}")
     private String bucket;
     
     @GetMapping("oss/signature")
     public SingleResponse getSignature() throws Exception {
-        Map<String, String> map = ossService.getSignature();
+        Map<String, String> map = ossFacade.getSignature();
         return SingleResponse.of(map);
     }
     
@@ -48,6 +48,6 @@ public class OssController {
     public SingleResponse getwxacodeunlimit(@PathVariable("appid") String appid, @PathVariable("secret") String secret, @RequestBody QrCodeRequest qrCodeRequest) {
         qrCodeRequest.setAppId(appid);
         qrCodeRequest.setAppSecret(secret);
-        return ossService.getwxacodeunlimit(qrCodeRequest);
+        return ossFacade.getwxacodeunlimit(qrCodeRequest);
     }
 }

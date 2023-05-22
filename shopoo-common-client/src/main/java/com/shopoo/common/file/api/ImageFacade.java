@@ -8,7 +8,7 @@ import com.shopoo.common.file.dto.cqe.ImageAddCmd;
  * @date Feb 21, 2019 6:35:10 PM
  * @author <a href="mailto:android_li@sina.cn">Joe</a>
  */
-public interface ImageService {
+public interface ImageFacade {
 
     /**
      * 文件信息保存上传

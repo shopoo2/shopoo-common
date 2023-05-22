@@ -11,7 +11,7 @@ import com.szmengran.cola.dto.Response;
  * @date 2018年4月19日 下午4:22:12
  * @author <a href="mailto:android_li@sina.cn">Joe</a>
  */
-public interface SmsCaptchaService {
+public interface SmsCaptchaFacade {
 
     Response check(CaptchaCheckCmd captchaCheckCmd);
 

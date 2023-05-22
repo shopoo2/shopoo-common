@@ -1,6 +1,6 @@
 package com.shopoo.common.file.mobile;
 
-import com.shopoo.common.file.api.ImageService;
+import com.shopoo.common.file.api.ImageFacade;
 import com.shopoo.common.file.dto.cqe.ImageAddCmd;
 import com.szmengran.cola.dto.Response;
 
@@ -20,12 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class ImageController {
 
     @Autowired
-    private ImageService imageService;
+    private ImageFacade imageFacade;
 
     @PostMapping(value = "/image")
     @ResponseBody
     public Response save(@RequestBody ImageAddCmd[] images) {
-        imageService.save(images);
+        imageFacade.save(images);
         return Response.buildSuccess();
     }
 

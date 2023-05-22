@@ -18,7 +18,7 @@ import com.aliyun.oss.model.PutObjectRequest;
 import com.shopoo.common.infrastructure.file.client.WechatMiniAppClient;
 import com.shopoo.common.app.file.converter.AppConverter;
 import com.shopoo.common.domain.file.utils.Contants;
-import com.shopoo.common.file.api.OssService;
+import com.shopoo.common.file.api.OssFacade;
 import com.shopoo.common.file.dto.cqe.QrCodeRequest;
 import com.shopoo.common.infrastructure.file.client.dto.QrCodeRequestBody;
 import com.shopoo.common.infrastructure.file.config.AliyunProperties;
@@ -44,11 +44,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @DubboService
-public class OssServiceImpl implements OssService {
+public class OssFacadeImpl implements OssFacade {
     
     private final static Integer EXPIRE_TIME = 8 * 60 * 1000; //过期时间为8分钟
     private final static long REDIX_EXPIRE_TIME = 5 * 60 * 1000l; //redis过期时间为5分钟
-    private final static Logger logger = LoggerFactory.getLogger(OssServiceImpl.class);
+    private final static Logger logger = LoggerFactory.getLogger(OssFacadeImpl.class);
 
     @DubboReference
     private TokenFacade tokenFacade;

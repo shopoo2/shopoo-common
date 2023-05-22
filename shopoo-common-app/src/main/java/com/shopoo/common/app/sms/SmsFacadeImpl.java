@@ -10,7 +10,7 @@ import com.shopoo.common.infrastructure.sms.repository.database.dataobject.TComm
 import com.shopoo.common.infrastructure.sms.repository.database.dataobject.TCommonSmsLog;
 import com.shopoo.common.infrastructure.sms.repository.database.mapper.SmsCaptchaMapper;
 import com.shopoo.common.infrastructure.sms.repository.database.mapper.SmsLogMapper;
-import com.shopoo.common.sms.api.SmsService;
+import com.shopoo.common.sms.api.SmsFacade;
 import com.shopoo.common.sms.dto.cqe.CommonSmsSendCmd;
 import com.shopoo.common.sms.dto.cqe.SmsSendCmd;
 import com.szmengran.cola.dto.Response;
@@ -30,7 +30,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @DubboService
 @Service
-public class SmsServiceImpl implements SmsService {
+public class SmsFacadeImpl implements SmsFacade {
     
     @Resource
     private SmsLogMapper smsLogMapper;
