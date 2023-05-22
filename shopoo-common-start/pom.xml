@@ -31,4 +31,54 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
+    
+    <build>
+        <plugins>
+            
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <from>
+                        <image>openjdk:17.0.2</image>
+                    </from>
+                    <to>
+                        <image>registry.cn-guangzhou.aliyuncs.com/szmengran/shopoo-common</image>
+                        <tags>
+                            <tag>${project.version}</tag>
+                        </tags>
+                        <auth>
+                            <username>szmengran@sina.cn</username>
+                            <password>Li542184118123@</password>
+                        </auth>
+                    </to>
+                    <container>
+                        <!--jvm内存参数-->
+                        <jvmFlags>
+                            <jvmFlag>-Xms128m</jvmFlag>
+                            <jvmFlag>-Xmx512m</jvmFlag>
+                        </jvmFlags>
+                        <ports>
+                            <port>8710</port>
+                        </ports>
+                        <mainClass>com.shopoo.common.Application</mainClass>
+                    </container>
+                </configuration>
+                <executions>
+                    <!-- 绑定生命周期:当执行package时执行goals中的jib命令 -->
+                    <execution>
+                        <!-- <id>latest</id> -->
+                        <!-- <phase>package</phase> -->
+                        <phase>package</phase>
+                        <goals>
+                            <!-- buildTar:只在本地生成tar压缩包  : build:生成并上传至你配置的docker仓库 -->
+                            <goal>build</goal>
+                            <!-- <goal>buildTar</goal> -->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

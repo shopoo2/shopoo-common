@@ -10,16 +10,18 @@ spring:
       username: ${NACOS_USERNAME}
       password: ${NACOS_PASSWORD}
       discovery:
-        namespace: shopoo-${spring.profiles.active}
+        namespace: szmengran-${spring.profiles.active}
         server-addr: ${NACOS_SERVER_ADDRESS}
       config:
-        namespace: shopoo-${spring.profiles.active}
+        namespace: szmengran-${spring.profiles.active}
         server-addr: ${NACOS_SERVER_ADDRESS}
   config:
     import:
       - nacos:knife4j.yaml
+      - nacos:common.yaml
+      - nacos:common-jdbc.yaml
+      - nacos:common-redis.yaml
+      - nacos:common-dubbo.yaml
+      - nacos:common-rocketmq.yaml
+      - nacos:common-oauth2-resource-server.yaml
       - nacos:shopoo-common.yaml
-      - nacos:shopoo-common-jdbc.yaml
-      - nacos:shopoo-common-redis.yaml
-      - nacos:shopoo-common-dubbo.yaml
-      - nacos:shopoo-common-rocketmq.yaml
