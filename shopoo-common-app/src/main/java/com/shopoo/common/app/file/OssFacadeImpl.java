@@ -1,5 +1,31 @@
 package com.shopoo.common.app.file;
 
+import com.aliyun.oss.OSS;
+import com.aliyun.oss.OSSClientBuilder;
+import com.aliyun.oss.common.utils.BinaryUtil;
+import com.aliyun.oss.model.PolicyConditions;
+import com.aliyun.oss.model.PutObjectRequest;
+import com.shopoo.common.app.file.converter.AppConverter;
+import com.shopoo.common.domain.file.utils.Contants;
+import com.shopoo.common.file.api.OssFacade;
+import com.shopoo.common.file.dto.cqe.QrCodeRequest;
+import com.shopoo.common.infrastructure.file.client.WechatMiniAppClient;
+import com.shopoo.common.infrastructure.file.client.dto.QrCodeRequestBody;
+import com.shopoo.common.infrastructure.file.config.AliyunProperties;
+import com.shopoo.common.wechat.api.TokenFacade;
+import com.shopoo.common.wechat.dto.clientobject.MiniAppTokenInfoCO;
+import com.shopoo.common.wechat.dto.cqe.MiniAppTokenQry;
+import com.szmengran.cola.dto.SingleResponse;
+import jakarta.annotation.Resource;
+import org.apache.dubbo.config.annotation.DubboReference;
+import org.apache.dubbo.config.annotation.DubboService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,34 +33,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import jakarta.annotation.Resource;
-
-import com.aliyun.oss.OSS;
-import com.aliyun.oss.OSSClientBuilder;
-import com.aliyun.oss.common.utils.BinaryUtil;
-import com.aliyun.oss.model.PolicyConditions;
-import com.aliyun.oss.model.PutObjectRequest;
-import com.shopoo.common.infrastructure.file.client.WechatMiniAppClient;
-import com.shopoo.common.app.file.converter.AppConverter;
-import com.shopoo.common.domain.file.utils.Contants;
-import com.shopoo.common.file.api.OssFacade;
-import com.shopoo.common.file.dto.cqe.QrCodeRequest;
-import com.shopoo.common.infrastructure.file.client.dto.QrCodeRequestBody;
-import com.shopoo.common.infrastructure.file.config.AliyunProperties;
-import com.shopoo.common.wechat.api.TokenFacade;
-import com.shopoo.common.wechat.dto.clientobject.MiniAppTokenInfoCO;
-import com.shopoo.common.wechat.dto.cqe.MiniAppTokenQry;
-import com.szmengran.cola.dto.SingleResponse;
-import org.apache.dubbo.config.annotation.DubboReference;
-import org.apache.dubbo.config.annotation.DubboService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Service;
 
 /** 
  * @Description: 阿里云OSS服务

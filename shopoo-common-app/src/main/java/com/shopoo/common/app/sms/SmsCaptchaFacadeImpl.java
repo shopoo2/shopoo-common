@@ -1,7 +1,5 @@
 package com.shopoo.common.app.sms;
 
-import java.time.LocalDateTime;
-
 import com.shopoo.common.app.sms.converter.AppConverter;
 import com.shopoo.common.infrastructure.sms.repository.database.dataobject.TCommonSmsCaptcha;
 import com.shopoo.common.infrastructure.sms.repository.database.mapper.SmsCaptchaMapper;
@@ -12,12 +10,13 @@ import com.shopoo.common.sms.dto.cqe.CaptchaUpdateCmd;
 import com.szmengran.cola.dto.Response;
 import com.szmengran.cola.exception.Assert;
 import com.szmengran.cola.exception.BizException;
+import jakarta.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.DubboService;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
+
+import java.time.LocalDateTime;
 
 /**
  * @Package com.szmengran.cloud.common.sms.service.impl
@@ -29,7 +28,7 @@ import org.springframework.validation.annotation.Validated;
 @DubboService
 public class SmsCaptchaFacadeImpl implements SmsCaptchaFacade {
     
-    @Autowired
+    @Resource
     private SmsCaptchaMapper smsCaptchaMapper;
 
     @Override

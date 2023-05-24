@@ -13,6 +13,7 @@ import com.shopoo.common.wechat.dto.cqe.TokenQry;
 import com.shopoo.common.wechat.dto.cqe.WechatInfoQry;
 import com.szmengran.cola.dto.Response;
 import com.szmengran.cola.dto.SingleResponse;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,11 +37,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/wechat")
 public class WechatController {
     
-    @Autowired
-    @Qualifier("wechatTokenService")
+    @Resource
     private TokenFacade tokenFacade;
     
-    @Autowired
+    @Resource
     private JsapiTicketFacade jsapiTicketFacade;
     
     /**

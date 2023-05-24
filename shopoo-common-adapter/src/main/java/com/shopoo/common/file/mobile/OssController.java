@@ -1,18 +1,17 @@
 package com.shopoo.common.file.mobile;
 
-import java.util.Map;
-
 import com.shopoo.common.file.api.OssFacade;
 import com.shopoo.common.file.dto.cqe.QrCodeRequest;
 import com.szmengran.cola.dto.SingleResponse;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 /** 
  * @Description: OSS API
@@ -23,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class OssController {
 
-    @Autowired
+    @Resource
     private OssFacade ossFacade;
     
     @Value("${aliyun.oss.bucket}")

@@ -1,7 +1,5 @@
 package com.shopoo.common.app.sms;
 
-import jakarta.annotation.Resource;
-
 import com.shopoo.common.app.sms.converter.AppConverter;
 import com.shopoo.common.domain.sms.config.SmsProperties;
 import com.shopoo.common.domain.sms.entity.Sms;
@@ -15,9 +13,9 @@ import com.shopoo.common.sms.dto.cqe.CommonSmsSendCmd;
 import com.shopoo.common.sms.dto.cqe.SmsSendCmd;
 import com.szmengran.cola.dto.Response;
 import com.szmengran.cola.exception.SysException;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
-
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +26,8 @@ import org.springframework.stereotype.Service;
  * @author <a href="mailto:android_li@sina.cn">Joe</a>
  */
 @Slf4j
-@DubboService
 @Service
+@DubboService
 public class SmsFacadeImpl implements SmsFacade {
     
     @Resource

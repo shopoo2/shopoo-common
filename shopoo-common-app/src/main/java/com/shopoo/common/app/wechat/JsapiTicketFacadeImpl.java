@@ -18,10 +18,9 @@ import com.szmengran.cola.dto.Response;
 import com.szmengran.cola.dto.SingleResponse;
 import com.szmengran.cola.exception.BizException;
 import com.szmengran.cola.exception.SysException;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -36,7 +35,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 @DubboService
 public class JsapiTicketFacadeImpl implements JsapiTicketFacade {
     
-    @Autowired
+    @Resource
     private WechatClient wechatClient;
     
     @CacheEvict(allEntries = true, value = "jsapi_ticket")

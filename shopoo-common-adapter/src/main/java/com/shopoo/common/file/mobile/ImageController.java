@@ -3,8 +3,7 @@ package com.shopoo.common.file.mobile;
 import com.shopoo.common.file.api.ImageFacade;
 import com.shopoo.common.file.dto.cqe.ImageAddCmd;
 import com.szmengran.cola.dto.Response;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ImageController {
 
-    @Autowired
+    @Resource
     private ImageFacade imageFacade;
 
     @PostMapping(value = "/image")

@@ -5,8 +5,7 @@ import com.shopoo.common.sms.dto.cqe.SmsSendCmd;
 import com.szmengran.cola.dto.Response;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.annotation.Resource;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(produces = { "application/json" })
 public class SmsController {
     
-    @Autowired
+    @Resource
     private SmsFacade smsFacade;
     
     @Operation(description = "发送短信服务")

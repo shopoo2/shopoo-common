@@ -1,10 +1,5 @@
 package com.shopoo.common.app.wechat;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
 import com.google.gson.Gson;
 import com.shopoo.common.app.wechat.converter.AppConverter;
 import com.shopoo.common.domain.wechat.repository.WechatRepository;
@@ -32,11 +27,15 @@ import com.shopoo.common.wechat.dto.cqe.mini.UniformMessageRequest;
 import com.szmengran.cola.dto.Response;
 import com.szmengran.cola.dto.SingleResponse;
 import com.szmengran.cola.exception.SysException;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
-
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -49,10 +48,10 @@ public class WechatFacadeImpl implements WechatFacade {
 
 	private static final ExecutorService executor = new ThreadPoolExecutor(2, 100, 0L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
 
-	@Autowired
+	@Resource
 	private WechatClient wechatClient;
 
-	@Autowired
+	@Resource
 	private WechatRepository wechatRepository;
 
 	@Override

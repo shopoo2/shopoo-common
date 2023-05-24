@@ -16,11 +16,10 @@ import com.shopoo.common.wechat.dto.cqe.TokenQry;
 import com.shopoo.common.wechat.dto.cqe.WechatInfoQry;
 import com.szmengran.cola.dto.SingleResponse;
 import com.szmengran.cola.exception.BizException;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.DubboService;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -33,11 +32,11 @@ import org.springframework.stereotype.Service;
  * @author <a href="mailto:android_li@sina.cn">Joe</a>
  */
 @Slf4j
-@Service("wechatTokenService")
+@Service
 @DubboService
 public class TokenFacadeImpl implements TokenFacade {
 
-    @Autowired
+    @Resource
     private WechatClient wechatClient;
     
     @Cacheable(value = "wechatMiniAppToken", key = "#miniAppTokenQry.appId")
