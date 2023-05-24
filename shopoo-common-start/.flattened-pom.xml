@@ -55,7 +55,7 @@
         </executions>
         <configuration>
           <from>
-            <image>openjdk:17.0.2</image>
+            <image>registry.cn-guangzhou.aliyuncs.com/szmengran/szmengran-docker-base:jdk17</image>
           </from>
           <to>
             <image>registry.cn-guangzhou.aliyuncs.com/szmengran/shopoo-common</image>
@@ -63,8 +63,8 @@
               <tag>${project.version}</tag>
             </tags>
             <auth>
-              <username>szmengran@sina.cn</username>
-              <password>Li542184118123@</password>
+              <username>${aliyunUsername}</username>
+              <password>${aliyunPassword}</password>
             </auth>
           </to>
           <container>
