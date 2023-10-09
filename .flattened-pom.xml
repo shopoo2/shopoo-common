@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.szmengran.cola</groupId>
     <artifactId>cola-components-dependencies</artifactId>
-    <version>3.0.6</version>
+    <version>3.1.4</version>
   </parent>
   <groupId>com.shopoo.common</groupId>
   <artifactId>shopoo-common-parent</artifactId>
