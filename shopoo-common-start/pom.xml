@@ -41,7 +41,7 @@
                 <version>3.3.1</version>
                 <configuration>
                     <from>
-                        <image>registry.cn-guangzhou.aliyuncs.com/szmengran/szmengran-docker-base:jdk17</image>
+                        <image>registry.cn-guangzhou.aliyuncs.com/szmengran/szmengran-docker-base:jdk17.0.12</image>
                     </from>
                     <to>
                         <image>registry.cn-guangzhou.aliyuncs.com/szmengran/shopoo-common</image>

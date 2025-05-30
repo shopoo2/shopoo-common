@@ -8,6 +8,8 @@ target/
 .settings
 .springBeans
 
+.flattened-pom.xml
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
